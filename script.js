@@ -1,20 +1,9 @@
-// 假設這是從 Excel 轉換來的球員資料 (JSON 格式)
+// 假設的球員名單（請替換為你的 Excel 資料）
 const playerPool = [
-    { name: "Manuel Neuer", position: "GK" },
-    { name: "Thibaut Courtois", position: "GK" },
-    { name: "Virgil van Dijk", position: "CB" },
-    { name: "Sergio Ramos", position: "CB" },
-    { name: "Carles Puyol", position: "CB" },
-    { name: "Kalidou Koulibaly", position: "CB" },
-    { name: "N'Golo Kanté", position: "CM" },
-    { name: "Sergio Busquets", position: "CM" },
-    { name: "Toni Kroos", position: "CM" },
-    { name: "Alphonso Davies", position: "LM" },
-    { name: "Trent Alexander-Arnold", position: "RM" },
-    { name: "Kevin De Bruyne", position: "AM" },
-    { name: "Robert Lewandowski", position: "ST" },
-    { name: "Kylian Mbappé", position: "ST" },
-    { name: "Erling Haaland", position: "ST" }
+    "Manuel Neuer", "Thibaut Courtois", "Virgil van Dijk", "Sergio Ramos",
+    "Carles Puyol", "Kalidou Koulibaly", "N'Golo Kanté", "Sergio Busquets",
+    "Toni Kroos", "Alphonso Davies", "Trent Alexander-Arnold", "Kevin De Bruyne",
+    "Robert Lewandowski", "Kylian Mbappé", "Erling Haaland"
 ];
 
 // 352 陣型的固定位置
@@ -32,23 +21,28 @@ function initializeTeamSelection() {
         const select = document.createElement("select");
         select.id = `select-${pos}`;
         select.innerHTML = '<option value="">選擇球員</option>';
-        
-        // 根據位置篩選球員
-        playerPool
-            .filter(player => player.position.toLowerCase() === pos.slice(0, -1) || (pos === "cb1" && player.position === "CB") || (pos === "cb2" && player.position === "CB") || (pos === "cb3" && player.position === "CB") || (pos === "st1" && player.position === "ST") || (pos === "st2" && player.position === "ST"))
-            .forEach(player => {
-                const option = document.createElement("option");
-                option.value = player.name;
-                option.textContent = player.name;
-                select.appendChild(option);
-            });
+
+        // 所有球員都可選
+        playerPool.forEach(player => {
+            const option = document.createElement("option");
+            option.value = player;
+            option.textContent = player;
+            select.appendChild(option);
+        });
+
+        // 當選擇改變時，更新戰術板上的名稱
+        select.addEventListener("change", function() {
+            const selectedPlayer = this.value;
+            const nameElement = document.getElementById(`name-${pos}`);
+            nameElement.textContent = selectedPlayer || pos.toUpperCase(); // 如果未選則顯示位置
+        });
 
         startingXiDiv.appendChild(label);
         startingXiDiv.appendChild(select);
         startingXiDiv.appendChild(document.createElement("br"));
     });
 
-    // 後備名單選擇（最多7人，示例）
+    // 後備名單選擇（最多7人）
     for (let i = 1; i <= 7; i++) {
         const label = document.createElement("label");
         label.textContent = `後備 ${i}: `;
@@ -58,15 +52,15 @@ function initializeTeamSelection() {
 
         playerPool.forEach(player => {
             const option = document.createElement("option");
-            option.value = player.name;
-            option.textContent = player.name;
+            option.value = player;
+            option.textContent = player;
             select.appendChild(option);
         });
 
         substitutesDiv.appendChild(label);
         substitutesDiv.appendChild(select);
         substitutesDiv.appendChild(document.createElement("br"));
-    }
+    });
 }
 
 // 原有的 playerData（這裡省略，保持之前的詳細版本）
