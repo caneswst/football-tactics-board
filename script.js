@@ -178,6 +178,6 @@ function showPlayerInfo(playerId) {
 }
 
 // 初始化頁面
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function() {
     initializeTeamSelection();
-};
+});
