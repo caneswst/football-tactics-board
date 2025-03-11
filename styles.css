@@ -6,27 +6,50 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px; /* 增加最大寬度以容納左側區域 */
     margin: 0 auto;
     text-align: center;
 }
 
 .content-wrapper {
-    display: flex; /* 使用 Flexbox 水平排列 */
-    justify-content: space-between; /* 讓子元素分開 */
-    align-items: flex-start; /* 頂部對齊 */
-    gap: 20px; /* 足球場和資訊之間的間距 */
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.team-selection {
+    width: 25%; /* 左側佔據 25% 寬度 */
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    height: 100%; /* 與戰術板同高 */
+    overflow-y: auto; /* 如果內容過多，啟用滾動 */
+    align-self: stretch;
+}
+
+.team-selection h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.team-selection select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .football-pitch {
     position: relative;
-    width: 60%; /* 足球場佔據 60% 寬度 */
+    width: 45%; /* 中間戰術板佔據 45% 寬度 */
     max-width: 800px;
 }
 
 .football-pitch img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
 .player {
@@ -49,12 +72,13 @@ body {
 }
 
 .player-info {
-    width: 35%; /* 資訊欄佔據 35% 寬度 */
+    width: 25%; /* 右側資訊欄佔據 25% 寬度 */
     padding: 20px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
-    position: sticky; /* 固定在右邊，隨滾動保持可見 */
-    top: 20px; /* 距離頂部 20px */
+    height: 100%;
+    overflow-y: auto;
+    align-self: stretch;
 }
