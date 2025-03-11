@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 1400px; /* 增加最大寬度以容納左側區域 */
+    max-width: 1400px;
     margin: 0 auto;
     text-align: center;
 }
@@ -18,14 +18,14 @@ body {
 }
 
 .team-selection {
-    width: 25%; /* 左側佔據 25% 寬度 */
+    width: 25%;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: left;
-    height: 100%; /* 與戰術板同高 */
-    overflow-y: auto; /* 如果內容過多，啟用滾動 */
+    height: 100%;
+    overflow-y: auto;
     align-self: stretch;
 }
 
@@ -42,7 +42,7 @@ body {
 
 .football-pitch {
     position: relative;
-    width: 45%; /* 中間戰術板佔據 45% 寬度 */
+    width: 45%;
     max-width: 800px;
 }
 
@@ -63,7 +63,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px; /* 減小字體以適應名稱 */
     font-weight: bold;
 }
 
@@ -71,8 +71,16 @@ body {
     background-color: #ff6666;
 }
 
+.player-name {
+    text-align: center;
+    white-space: nowrap; /* 防止換行 */
+    overflow: hidden; /* 超出部分隱藏 */
+    text-overflow: ellipsis; /* 超出顯示省略號 */
+    max-width: 100%; /* 限制名稱寬度 */
+}
+
 .player-info {
-    width: 25%; /* 右側資訊欄佔據 25% 寬度 */
+    width: 25%;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
