@@ -1,9 +1,7 @@
 // 假設的球員名單（請替換為你的 Excel 資料）
 const playerPool = [
-    "Manuel Neuer", "Thibaut Courtois", "Virgil van Dijk", "Sergio Ramos",
-    "Carles Puyol", "Kalidou Koulibaly", "N'Golo Kanté", "Sergio Busquets",
-    "Toni Kroos", "Alphonso Davies", "Trent Alexander-Arnold", "Kevin De Bruyne",
-    "Robert Lewandowski", "Kylian Mbappé", "Erling Haaland"
+    "東", "Alex", "光", "禮", "Ken", "航", "雷公", "鬼佬", "Dan", "锐", "Vasco", "Mike", 
+    "Xander", "Nate", "軍", "俊", "新", "達", "Hugo", "謙", "斌", "甘", "Joe", "杰", "家興"
 ];
 
 // 352 陣型的固定位置
