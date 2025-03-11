@@ -63,7 +63,7 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 12px; /* 減小字體以適應名稱 */
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -73,10 +73,10 @@ body {
 
 .player-name {
     text-align: center;
-    white-space: nowrap; /* 防止換行 */
-    overflow: hidden; /* 超出部分隱藏 */
-    text-overflow: ellipsis; /* 超出顯示省略號 */
-    max-width: 100%; /* 限制名稱寬度 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .player-info {
