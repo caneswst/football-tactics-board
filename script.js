@@ -174,7 +174,6 @@ function showPlayerInfo(playerId) {
     document.getElementById("attributes").innerText = data.attributes;
     document.getElementById("attack").innerText = data.attack;
     document.getElementById("defense").innerText = data.defense;
-    document.getElementById("example").innerText = data.example;
 }
 
 // 初始化頁面
