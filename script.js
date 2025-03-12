@@ -20,7 +20,6 @@ function initializeTeamSelection() {
         select.id = `select-${pos}`;
         select.innerHTML = '<option value="">選擇球員</option>';
 
-        // 所有球員都可選
         playerPool.forEach(player => {
             const option = document.createElement("option");
             option.value = player;
@@ -28,11 +27,10 @@ function initializeTeamSelection() {
             select.appendChild(option);
         });
 
-        // 當選擇改變時，更新戰術板上的名稱
         select.addEventListener("change", function() {
             const selectedPlayer = this.value;
             const nameElement = document.getElementById(`name-${pos}`);
-            nameElement.textContent = selectedPlayer || pos.toUpperCase(); // 如果未選則顯示位置
+            nameElement.textContent = selectedPlayer || pos.toUpperCase();
         });
 
         startingXiDiv.appendChild(label);
